@@ -22,7 +22,7 @@ export class AuthService {
     });
 
     if (!adminAccount) {
-      throw ResConfig.Fail_400({ message: 'ADMIN 계정이 아닙니다.' });
+      throw ResConfig.Fail_400({ message: '어드민 계정이 아닙니다.' });
     }
 
     const isMatch = await BcryptHandler.comparePassword(password, adminAccount.password as string);
