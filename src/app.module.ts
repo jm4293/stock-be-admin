@@ -3,6 +3,7 @@ import { configModuleConfig, typeormModuleConfig } from './config';
 import { ConfigModule } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { UserModule } from './module/user';
+import { AuthModule } from './module/auth';
 
 /**
  * imports: 다른 모듈을 가져오기
@@ -12,7 +13,13 @@ import { UserModule } from './module/user';
  */
 
 @Module({
-  imports: [ConfigModule.forRoot(configModuleConfig), TypeOrmModule.forRootAsync(typeormModuleConfig), UserModule],
+  imports: [
+    ConfigModule.forRoot(configModuleConfig),
+    TypeOrmModule.forRootAsync(typeormModuleConfig),
+
+    AuthModule,
+    UserModule,
+  ],
   controllers: [],
   providers: [],
   exports: [],
