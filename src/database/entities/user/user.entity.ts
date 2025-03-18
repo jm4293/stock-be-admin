@@ -9,6 +9,7 @@ import {
 } from 'typeorm';
 import { UserAccount } from './user-account.entity';
 import { UserStatusEnum, UserTypeEnum } from '../../../constant/enum';
+import { Board, BoardComment, BoardLike } from '../board';
 
 @Entity()
 export class User {
@@ -50,4 +51,13 @@ export class User {
 
   @OneToMany(() => UserAccount, (userAccount) => userAccount.user)
   userAccounts: UserAccount[];
+
+  @OneToMany(() => Board, (board) => board.user)
+  boards: Board[];
+
+  @OneToMany(() => BoardComment, (boardComment) => boardComment.user)
+  boardComments: BoardComment[];
+
+  @OneToMany(() => BoardLike, (boardLike) => boardLike.user)
+  boardLikes: BoardLike[];
 }

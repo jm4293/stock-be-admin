@@ -13,7 +13,7 @@ export class UserRepository extends Repository<User> {
     const user = await this.findOne({ where: { userSeq } });
 
     if (!user) {
-      throw ResConfig.Fail_400({ message: '사용자 정보가 존재하지 않습니다.' });
+      throw ResConfig.Fail_400({ message: '사용자 정보가 없습니다.' });
     }
 
     return user;
