@@ -9,6 +9,6 @@ export class StockController {
   @Post('upload')
   @UseInterceptors(FileInterceptor('file'))
   async uploadFile(@UploadedFile() file: Express.Multer.File) {
-    this.stockService.uploadFile(file);
+    await this.stockService.uploadFile({ file });
   }
 }

@@ -33,7 +33,7 @@ async function bootstrap() {
   });
   // Swagger 설정 끝
   await app.listen(configService.get('SERVER_PORT') as string, () => {
-    console.log(`Server is running on ${configService.get('SERVER_PORT')}`);
+    console.info(`Server is running on ${configService.get('SERVER_PORT')}`);
   });
 }
 bootstrap();
